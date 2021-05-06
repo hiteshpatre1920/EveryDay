@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FetchAPI</title>
+    </head>
+<body>
+
+
+    <form id="myFrom">
+        Title: <input type="text" id="titleText"><br><br>
+        Body: <input type="text" id="bodyText"><br><br>
+        User ID: <input type="text" id="userid"><br><br>
+        <input type="submit" id="saveForm"><br><br>
+    </form>
+
+
+    <script>
+        document.getElementById("saveForm").addEventListener("click", function(hitesh){
+
+            hitesh.preventDefault();
+
+            // var obj = {
+            //     title: document.getElementById("titleText").value,
+            //     body: document.getElementById("bodyText").value,
+            //     userId: document.getElementById("userid").value,
+            // };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: new FormData(document.getElementById("myFrom")),
+        headers: {
+            'Content-type': 'application/x-www-form-urlencoded',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+        });
+
+        
+
+        
+    </script>
+
+</body>
+</html>
+
+<!-- (---------------------------------------This is All (below code) for read the document in local or server----------------------------------------) -->
+
+<!-- <script>
+    fetch("content/readme.txt")
+    .then((response)=>{
+        return response.text();
+    })
+    .then((data)=>{                 // any name given to in place of data
+        document.write(data);
+    });
+</script> -->
+
+
+<!-- <script>
+    fetch("content/readme.txt")
+    .then((response)=>{
+        return response.text();
+    })
+    .then((data)=>{                 // any name given to in place of data
+        document.write(data);
+    }).catch(()=>alert('Not Found'));
+</script> -->
+
+<!-- <script>
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response)=>{
+        return response.json();
+    })
+    .then((data)=>{                 // any name given to in place of data
+        document.write(data);
+        console.log(data);
+    })
+    .catch(()=>alert('Not Found'));
+</script> -->
+
+<!-- 
+<script>
+    fetch("https://jsonplacehlder.typicode.com/users")
+    .then((response)=>{             // any name in place of response
+        return response.json();
+    })
+    .then((data)=>{                 // any name given to in place of data
+        document.write(data);
+        console.log(data);
+    })
+    .catch(()=>alert('Not Found'));
+</script> -->
+
+
+<!-- <script>
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response)=>{             // any name in place of response
+        return response.json();
+    })
+    .then((data)=>{                 // any name given to in place of data
+        console.log(data);
+        document.write(data);               
+        for(var x in data){
+            document.write(data[x].name + "- " + data[x].email + " -" + data[x].address.city + "<br>");
+        }
+    })
+    .catch(()=>alert('Not Found'));
+</script> -->
+
+
+
+<!-- <script>
+    fetch("json/student_data.json")
+    .then((response)=>{             // any name in place of response
+        return response.json();
+    })
+    .then((data)=>{                 // any name given to in place of data
+        // console.log(data);
+        // document.write(data); 
+        
+        for(var i in data){
+            document.write(data[i].name + " " + data[i].age)
+            document.write("<br>")
+        }
+        
+    })
+    .catch(()=>alert('Not Found'));
+</script> -->
+
+
+<!-- (------------------------------To update or send data into server-------------------------------------) -->
+
+
+<!-- fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'foo',
+      body: 'bar',
+      userId: 1,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json)); -->
+
+
+
+
+    <!-- <script>
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+                title: 'foo',
+                body: 'bar',
+                userId: 1,
+            }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    </script> -->
+
+
+
+    <!-- <script>
+        var obj = {
+                title: 'fffff',
+                body: 'bar',
+                userId: 1,
+            };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    </script> -->
+
+
+    <!-- <script>
+        var obj = {
+                title: 'fffff',
+                body: 'bar',
+                userId: 1,
+            };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    </script> -->
+
+
+
+
+<!-- (--------------------------To Put Value on server---------------------) -->
+
+
+    <!-- fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        method: 'PUT',
+        body: JSON.stringify({
+          id: 1,
+          title: 'foo',
+          body: 'bar',
+          userId: 1,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json)); -->
+
+
+        <!-- (----------------------Patching a resource------------------------------) -->
+       
+        <!-- fetch('https://jsonplaceholder.typicode.com/posts/1', {
+          method: 'PATCH',
+          body: JSON.stringify({
+            title: 'foo',
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+          .then((response) => response.json())
+          .then((json) => console.log(json)); -->
+
+
+
+
+          <!-- (--------------------------Deleting a resource----------------------------------) -->
+          
+          
+          <!-- fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'DELETE',
+          }); -->
+
+
+
+
+          <!-- (----------------------------Extra Gyan---------------------) -->
+
+
+
+          <!-- <form id="myFrom">
+            Title: <input type="text" id="titleText"><br><br>
+            Body: <input type="text" id="bodyText"><br><br>
+            User ID: <input type="text" id="userid"><br><br>
+            <input type="submit" id="saveForm"><br><br>
+        </form>
+    
+    
+        <script>
+            document.getElementById("saveForm").addEventListener("click", function(hitesh){
+    
+                hitesh.preventDefault();
+    
+                var obj = {
+                    title: document.getElementById("titleText").value,
+                    body: document.getElementById("bodyText").value,
+                    userId: document.getElementById("userid").value,
+                };
+    
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify(obj),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+            });
+    
+            
+    
+            
+        </script>
+
+ -->
+
